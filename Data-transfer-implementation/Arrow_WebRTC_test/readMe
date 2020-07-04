@@ -1,0 +1,42 @@
+This example shows an implementation of how to send and receive data using the arrow format via WEBRTC.
+
+More information about WEBRTC can be found in the link: https://www.html5rocks.com/en/tutorials/webrtc/infrastructure/
+
+
+Dependencies:
+ARROW_CGLIB library
+installation procedures can be found at this location - https://arrow.apache.org/install/
+Important - If an error shows that the arrow library is not found, go to the cmakelist and modify the library's location to the location it is installed in your system:
+"include_directories(/usr/lib/x86_64-linux-gnu/glib-2.0/include /usr/include/glib-2.0)"
+
+libdatachannel library
+This library uses Google stun and turn to make the direct peer to peer connection.
+Using personal server can be shown in the following example line  141 to 144 https://github.com/paullouisageneau/libdatachannel/blob/master/test/capi.cpp
+
+
+It is Advisable to delete the build folder first to prevent building error
+Instruction
+
+To run:
+create a folder called build
+- mkdir build
+
+go into the folder and run the following
+
+- cd build
+- cmake ..
+- make
+
+
+Due to the lack of the signaling server, the initial sdp protocol and candidate information exchange must be done manually with the following instruction:
+ - Execute offerer app in console
+ - Execute the answerer app in another console
+ - Copy "Local Description" from the offerer
+ - Enter 1 to answerer
+ - Paste copied description, press enter
+ - Redo same procedure for the answerer
+ - Redo same procedure for candidates (Do this for both the offerer and answerer, if not, the data wont be sent)
+ - Wait for "DataChannel open" message
+
+
+ After all the data has been sent, the offerer automatically shuts down. To close the answerer, press 0 in the console and it should shut down.
