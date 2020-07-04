@@ -1,0 +1,152 @@
+perspective-viewer {
+	width: 100%; 
+	height: 600px;
+	clear: both; 
+	background: white;
+	overflow: hidden;
+}
+body {
+	width:70%;
+	height: auto;
+	margin: 0px auto;
+	background: #eee;
+	color: #333;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+}
+.frame {
+	border: 5px solid #ccc;
+	border-radius: 5px;
+}
+
+
+.Simulation_board{
+	text-align: right;
+}
+
+
+
+.scope {
+	/* width: 900px;  */
+	height: 600px;
+	clear: both;
+	background: grey;
+	width:100%
+}
+
+.header {
+	padding: 5px;
+	text-align: center;
+	background:  rgba(0,0,0,0.2);
+	color: black;
+	font-size: 25px;
+	padding: 5px;
+	height: 150px;
+	font-style: oblique;
+	font-family: verdana;
+}
+
+.headerframe {
+	border: 5px solid #ccc;
+	border-radius: 5px;
+	opacity: 0.8;
+}
+
+.controls {
+	width: 100%;
+	height: 100%;
+  }
+
+
+  /* button run and pause*/
+
+  input[type=button]{
+	display: inline-block;
+	padding: 15px 25px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0;
+	margin: 4px 2px;
+  }
+  
+  
+  input[type=button]:active {
+	background-color: blue;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+  }
+
+  .title {
+	  vertical-align: center;
+	  text-align: left;
+	  font-size: 150%;
+	  width: 100%;
+	  float: left;
+	  padding: 15px;
+	  font-weight: bold
+}
+.slidecontainer {
+	vertical-align: center;
+	text-align: left;
+	font-size: 150%;
+	width: 100%;
+	font-weight: bold
+	/* padding: 1px; */
+}
+
+#wrapper {
+    width: 100%;
+    overflow: hidden; /* add this to contain floated children */
+}
+#butons {
+    width: 50%;
+	float:left; /* add this */
+	overflow: hidden;
+    /* border: 1px solid green; */
+}
+#input {
+	width: 50%;
+
+    /* border: 1px solid green; */
+    float: left; /* add this */
+}
+
+
+input[type=range] {
+	-webkit-appearance: none;
+	margin: 10px 0;
+	width: 60%;
+  }
+  input[type=range]:focus {
+	outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 12.8px;
+	cursor: pointer;
+	animate: 0.2s;
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	background: green;
+	border-radius: 25px;
+	border: 0px solid #000101;
+  }
+  input[type=range]::-webkit-slider-thumb {
+	box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	border: 0px solid #000000;
+	height: 20px;
+	width: 39px;
+	border-radius: 7px;
+	background: #585657;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -3.6px;
+  }
+
+ 

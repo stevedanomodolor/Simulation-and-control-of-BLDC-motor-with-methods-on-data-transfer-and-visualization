@@ -1,0 +1,23 @@
+{
+  "name": "motor-simulation",
+  "version": "1.0.0",
+  "description": "motor simulation",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "stevedan Ogochukwu Omodolor",
+  "license": "ISC",
+  "dependencies": {
+    "@finos/perspective": "^0.4.8",
+    "@finos/perspective-viewer": "^0.4.8",
+    "@finos/perspective-viewer-d3fc": "^0.4.8",
+    "@finos/perspective-viewer-datagrid": "^0.4.8",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "modernizr": "^3.11.2",
+    "process": "^0.11.10",
+    "require": "^2.4.20"
+  }
+}

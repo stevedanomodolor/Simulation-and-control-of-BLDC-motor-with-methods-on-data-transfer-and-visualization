@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+      <meta content="utf-8" http-equiv="encoding">
+      <title>BLDC MOTOR SIMULATION</title>
+
+      <meta name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+
+      <script src="perspective-viewer.js"></script>
+      <script src="perspective-viewer-datagrid.js"></script>
+      <script src="perspective-viewer-d3fc.js"></script>
+
+      <script src="perspective.js"></script>
+      <link href="main.css" rel="stylesheet" type="text/css">
+      <link rel='stylesheet' href="material.css" is="custom-style">
+      <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">                                 
+      <link rel='stylesheet' href=material-dense.dark.css> -->
+  
+      <script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+
+
+      <script src="a.js"></script>
+      <script src="motor_update_sim.js"></script>
+
+
+</head>
+
+<body>
+      <div class="headerframe">
+            <div class="header">
+                  <h1>SIMULATION BLDC MOTOR</h1>
+                  <p>Real-time data streaming</p>
+            </div>
+      </div>
+
+      <div class="frame">
+            <div class="scope">
+                  <perspective-viewer
+                        aggregates='{"comp_time":"avg","va":"avg", "vb":"avg", "vc":"avg", "rpm":"avg", "position":"avg", "iq":"avg", "id":"avg","frequency":"avg","avg_frequency":"avg"}'
+                        row-pivots='["lastUpdate"]'
+                        columns='["comp_time","va", "vb", "vc", "rpm", "position", "iq", "id","frequency","avg_frequency"]'>
+                  </perspective-viewer>
+
+            </div>
+            <div id="wrapper">
+            <div id="butons">
+
+
+                  <form class="controls">
+                        <div width="100%" class="title">Simulation [step=0.1ms]</div>
+                        <table>
+                              <tbody>
+                                    <tr>
+                                          <td style="width: uto%;">
+                                                <input class="simulation_button" value="pause" onclick="state='pause'"
+                                                      type="button">
+                                          </td>
+                                          <td style="width: auto%;">
+                                                <input class="simulation_button" value="run" onclick="state='run'"
+                                                      type="button">
+                                          </td>
+                                          <td style="width: 2auto">
+                                                <input class="restart_button" value="restart" onclick="restart()"
+                                                      type="button">
+                                          </td>
+                                          <td style="width: auto;">
+                                          </td>
+                                    </tr>
+                              </tbody>
+                        </table>
+
+                        <div width="100%" class="title"> Controller</div>
+
+                        <table>
+                              <tbody>
+                                    <tr>
+                                          <td style="width: auto;">
+                                                <input class="controller_button" value="Open-loop" onclick="controler=0"
+                                                      type="button">
+                                          </td>
+                                          <td style="width: auto;">
+                                                <input class="controller_button" value="FOC speed" onclick="controler=1"
+                                                      type="button">
+                                          </td>
+                                          <td style="width: auto;">
+                                                <input class="controller_button" value="FOC position" onclick="controler=2"
+                                                      type="button">
+                                          </td>
+                                          <td style="width: auto;">
+                                          </td>
+                                    </tr>
+                              </tbody>
+                        </table>
+
+            </div>
+
+            <div id="input" width="50%">
+
+
+                  <div class="slidecontainer">
+                        <p> Vbus [v]</p>
+                        <input id="vbus" value="24" min="0" max="36" oninput="vbus_out.value=this.value" type="range">
+                        <output name="vbus_out" for="offset">24</output>
+                  </div>
+
+
+                  <div class="slidecontainer">
+
+                        <p>Load torque: [Nm]</p>
+                        <input id="loadt" value="0" min="0" max="100" oninput="loadt_out.value=this.value/100"
+                              type="range">
+                        <output name="loadt_out" for="offset">0</output>
+                  </div>
+
+                  <div class="slidecontainer">
+
+                        <p>Load inertia: [kg*m^2]</p>
+                        <input id="loadj" value="0" min="0" max="100" oninput="loadj_out.value=this.value/1000"
+                              type="range">
+                        <output name="loadj_out" for="offset">0</output>
+
+                  </div>
+
+                  <div class="slidecontainer">
+
+
+                        <p>Pos ref: [degree]</p>
+                        <input id="pos" value="180" min="0" max="360" oninput="pos_out.value=this.value" type="range">
+                        <output name="pos_out" for="offset">180</output>
+                  </div>
+
+
+                  <div class="slidecontainer">
+
+                        <p>Speed ref: [rpm]</p>
+                        <input id="rpm" value="10" min="0" max="100" oninput="rpm_out.value=this.value" type="range">
+                        <output name="rpm_out" for="offset">10</output>
+                  </div>
+
+
+
+
+                  </form>
+            </div>
+      </div>
+
+            <!-- <div class="sim">
+                  <canvas id="canvas" style="width:600px, height:320px" width="600" height="320"></canvas>
+            </div> -->
+
+
+      </div>
+
+</body>
+
+</html>
