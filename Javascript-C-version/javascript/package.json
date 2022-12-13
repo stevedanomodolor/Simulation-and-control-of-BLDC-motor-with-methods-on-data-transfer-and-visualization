@@ -14,7 +14,7 @@
     "@finos/perspective-viewer": "^0.4.8",
     "@finos/perspective-viewer-d3fc": "^0.4.8",
     "@finos/perspective-viewer-datagrid": "^0.4.8",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-ws": "^4.0.0",
     "modernizr": "^3.11.2",
     "process": "^0.11.10",
